@@ -13,7 +13,7 @@ def extract_data(extension):
     return edited_data
 
 def calcHead(p, rho, g):
-    H = p/(rho*g)
+    H = p*1000.0/(rho*g)
     return H
 
 def calcTorque(F):
@@ -26,7 +26,7 @@ def calcBrakePower(n, T):
     return Pb
 
 def calcHydroPower(rho, g, H, Q):
-    Ph = rho*g*H*Q/60.0
+    Ph = rho*g*H*Q/60000.0
     return Ph
 
 def calcEfficiency(Pb, Ph):
@@ -67,5 +67,4 @@ def mainFunc():
     makingPlots(figure_counter, set100[:, 2], set90[:, 2], E100, E90, 'Efficiency [%]', '100', '90', 'Efficiency vs Rotational Speed')
 
 mainFunc()
-
 input()
